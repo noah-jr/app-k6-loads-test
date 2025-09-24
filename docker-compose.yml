@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    container_name: my-k6-app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
+      - /app/node_modules
+      - ./k6:/app/k6
+      - ./k6/results:/app/k6/results
